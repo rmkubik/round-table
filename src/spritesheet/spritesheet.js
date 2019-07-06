@@ -1,6 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+const SpriteContainer = styled.div`
+  width: ${props => props.width * props.scale}px;
+  height: ${props => props.height * props.scale}px;
+`;
+
 const Sprite = styled.div`
   background: url(${props => props.sheet}) -${props =>
       props.row * props.height}px -${props => props.col * props.width}px;
@@ -8,6 +13,7 @@ const Sprite = styled.div`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   transform: scale(${props => props.scale});
+  transform-origin: top left;
 `;
 
 class SpriteSheet {
@@ -21,14 +27,20 @@ class SpriteSheet {
 
   get(row, col, scale) {
     return (
-      <Sprite
+      <SpriteContainer
         height={this.tileHeight}
         width={this.tileWidth}
-        sheet={this.sheet}
-        row={row}
-        col={col}
         scale={scale}
-      />
+      >
+        <Sprite
+          height={this.tileHeight}
+          width={this.tileWidth}
+          sheet={this.sheet}
+          row={row}
+          col={col}
+          scale={scale}
+        />
+      </SpriteContainer>
     );
   }
 }

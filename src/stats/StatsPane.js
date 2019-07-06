@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const StatsPane = () => {
+const StatsPane = ({ spriteSheet }) => {
   return (
     <section>
       <h2>You</h2>
-      <img src="https://via.placeholder.com/150" />
+      {spriteSheet.get(1, 1, 8)}
       <h3>Stats</h3>
       <table>
         <tbody>

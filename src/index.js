@@ -21,7 +21,7 @@ const App = () => {
     <div>
       <h1>Round Table</h1>
       <Main>
-        <StatsPane />
+        <StatsPane spriteSheet={spriteSheet} />
         <RightColumn>
           <CouncilPane spriteSheet={spriteSheet} />
           <EventsPane />
