@@ -10,14 +10,14 @@ const Row = styled.div`
   }
 `;
 
-const CouncilPane = () => {
+const CouncilPane = ({ spriteSheet }) => {
   return (
     <section>
       <h2>Council</h2>
       <Row>
-        <Person />
-        <Person />
-        <Person />
+        <Person spriteSheet={spriteSheet} />
+        <Person spriteSheet={spriteSheet} />
+        <Person spriteSheet={spriteSheet} />
       </Row>
     </section>
   );

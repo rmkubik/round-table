@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const ChoiceCard = () => {
+const ChoiceCard = ({ spriteSheet }) => {
   return (
     <div>
       <h3>David</h3>
-      <img src="https://via.placeholder.com/150" />
+      {spriteSheet.get(2, 2, 6)}
       <h4>Stats</h4>
       <table>
         <tbody>
