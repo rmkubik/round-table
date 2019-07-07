@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -36,11 +36,35 @@ const spriteSheet = new SpriteSheet({
   tileHeight: 16
 });
 
+const initialState = {
+  gold: 0,
+  population: 100,
+  honor: 0,
+  might: 20
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { [action.target]: state[action.target] + action.value };
+    case "decrement":
+      return { [action.target]: state[action.target] - action.value };
+    default:
+      throw new Error();
+  }
+}
+
 const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <ThemeProvider theme={theme}>
       <Main>
-        <StatsPane spriteSheet={spriteSheet} />
+        <StatsPane
+          spriteSheet={spriteSheet}
+          state={state}
+          dispatch={dispatch}
+        />
         <RightColumn>
           <CouncilPane spriteSheet={spriteSheet} />
           <EventsPane />

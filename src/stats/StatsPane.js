@@ -3,12 +3,18 @@ import styled from "styled-components";
 import Pane from "../layout/Pane";
 import Card from "../layout/Card";
 
-const StatsPane = ({ spriteSheet }) => {
+const StatsPane = ({ spriteSheet, state, dispatch }) => {
   return (
     <Pane>
       <h2>Your Highness</h2>
       <Card>
-        <h3>You</h3>
+        <h3
+          onClick={() =>
+            dispatch({ type: "increment", value: 20, target: "gold" })
+          }
+        >
+          You
+        </h3>
         {spriteSheet.get(1, 1, 8, "gray1")}
         <h4>Stats</h4>
         <table>
@@ -34,19 +40,19 @@ const StatsPane = ({ spriteSheet }) => {
         <tbody>
           <tr>
             <td>Population</td>
-            <td>600</td>
+            <td>{state.population}</td>
           </tr>
           <tr>
             <td>Might</td>
-            <td>120</td>
+            <td>{state.might}</td>
           </tr>
           <tr>
             <td>Gold</td>
-            <td>85</td>
+            <td>{state.gold}</td>
           </tr>
           <tr>
             <td>Honor</td>
-            <td>85</td>
+            <td>{state.honor}</td>
           </tr>
         </tbody>
       </table>
