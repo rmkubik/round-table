@@ -12,6 +12,21 @@ const Row = styled.div`
   }
 `;
 
+const FireButton = styled.button`
+  color: ${props => props.theme.palette.white};
+  background-color: ${props => props.theme.palette.red1};
+  border-radius: 2px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 4px;
+
+  &:hover {
+    box-shadow: 0 2px 3px ${props => props.theme.palette.black};
+    transform: scale(1.05);
+    transition: 0.2s;
+  }
+`;
+
 const CouncilPane = ({ spriteSheet }) => {
   const { state } = useAppStateContext();
   const { council } = state;
@@ -21,7 +36,14 @@ const CouncilPane = ({ spriteSheet }) => {
       <h2>Council</h2>
       <Row>
         {council.map(person => (
-          <PersonCard key={person.name} spriteSheet={spriteSheet} {...person} />
+          <div>
+            <PersonCard
+              key={person.name}
+              spriteSheet={spriteSheet}
+              {...person}
+            />
+            <FireButton>Fire</FireButton>
+          </div>
         ))}
       </Row>
     </Pane>

@@ -6,7 +6,7 @@ const ChoiceCard = ({ name, requirements, effects, index }) => {
   const { actions } = useAppStateContext();
 
   return (
-    <Card onClick={() => actions.chooseEvent({ index })}>
+    <Card hover={true} onClick={() => actions.chooseEvent({ index })}>
       <h3>{name}</h3>
       <h4>Requirements</h4>
       <ul>

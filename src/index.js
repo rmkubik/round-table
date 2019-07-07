@@ -25,7 +25,11 @@ const theme = {
     slate2: "#92a1b9",
     slate3: "#657392",
     slate4: "#424c6e",
-    slate5: "#2a2f4e"
+    slate5: "#2a2f4e",
+    red1: "#ea323c",
+    red2: "#c42430",
+    red3: "#891e2b",
+    red4: "#571c27"
   }
 };
 
