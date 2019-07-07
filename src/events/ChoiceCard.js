@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import Card from "../layout/Card";
 
 const ChoiceCard = () => {
   return (
-    <div>
+    <Card>
       <h3>Recruit It</h3>
       <img src="https://via.placeholder.com/150" />
       <h4>Requirements</h4>
@@ -15,7 +15,7 @@ const ChoiceCard = () => {
       <ul>
         <li>-50 Gold</li>
       </ul>
-    </div>
+    </Card>
   );
 };
 

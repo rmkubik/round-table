@@ -4,6 +4,7 @@ import styled from "styled-components";
 const SpriteContainer = styled.div`
   width: ${props => props.width * props.scale}px;
   height: ${props => props.height * props.scale}px;
+  background-color: ${props => props.theme.palette[props.background]};
 `;
 
 const Sprite = styled.div`
@@ -25,12 +26,13 @@ class SpriteSheet {
     this.tileHeight = tileHeight;
   }
 
-  get(row, col, scale) {
+  get(row, col, scale, background) {
     return (
       <SpriteContainer
         height={this.tileHeight}
         width={this.tileWidth}
         scale={scale}
+        background={background}
       >
         <Sprite
           height={this.tileHeight}
