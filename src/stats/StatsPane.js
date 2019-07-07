@@ -4,16 +4,43 @@ import Pane from "../layout/Pane";
 import Card from "../layout/Card";
 import PersonCard from "../council/PersonCard";
 import { useAppStateContext } from "../state";
+import { selectTotalStats } from "../state/selectors";
 
 const StatsPane = ({ spriteSheet }) => {
   const { state } = useAppStateContext();
-  const { realm, you } = state;
+  const { realm, you, council } = state;
+  const totals = selectTotalStats(state);
 
   return (
     <Pane>
       <h2>Your Highness</h2>
 
-      <PersonCard spriteSheet={spriteSheet} {...you} />
+      {/* <PersonCard spriteSheet={spriteSheet} {...you} /> */}
+
+      <Card>
+        <h3>{`${you.name} ${you.familyName}`}</h3>
+        {spriteSheet.get(you.face.row, you.face.col, 8, "gray1")}
+        <h4>Stats</h4>
+        <table>
+          <tbody>
+            <tr>
+              <td>Economics</td>
+              <td>{you.stats.economics}</td>
+              <td>{`(${totals.economics})`}</td>
+            </tr>
+            <tr>
+              <td>Military</td>
+              <td>{you.stats.military}</td>
+              <td>{`(${totals.military})`}</td>
+            </tr>
+            <tr>
+              <td>Diplomacy</td>
+              <td>{you.stats.diplomacy}</td>
+              <td>{`(${totals.diplomacy})`}</td>
+            </tr>
+          </tbody>
+        </table>
+      </Card>
 
       {/* <Card>
         <h3
