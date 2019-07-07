@@ -40,7 +40,48 @@ const initialState = {
   gold: 0,
   population: 100,
   honor: 0,
-  might: 20
+  might: 20,
+  council: [
+    {
+      name: "Richard",
+      familyName: "Lovelace",
+      stats: {
+        economics: 6,
+        diplomacy: 3,
+        military: 2
+      },
+      face: {
+        row: 0,
+        col: 1
+      }
+    },
+    {
+      name: "Elton",
+      familyName: "Vaporweave",
+      stats: {
+        economics: 6,
+        diplomacy: 3,
+        military: 2
+      },
+      face: {
+        row: 2,
+        col: 0
+      }
+    },
+    {
+      name: "David",
+      familyName: "Wintertoes",
+      stats: {
+        economics: 6,
+        diplomacy: 3,
+        military: 2
+      },
+      face: {
+        row: 2,
+        col: 2
+      }
+    }
+  ]
 };
 
 function reducer(state, action) {
@@ -66,7 +107,7 @@ const App = () => {
           dispatch={dispatch}
         />
         <RightColumn>
-          <CouncilPane spriteSheet={spriteSheet} />
+          <CouncilPane spriteSheet={spriteSheet} council={state.council} />
           <EventsPane />
         </RightColumn>
       </Main>

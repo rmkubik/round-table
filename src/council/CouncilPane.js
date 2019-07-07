@@ -11,14 +11,14 @@ const Row = styled.div`
   }
 `;
 
-const CouncilPane = ({ spriteSheet }) => {
+const CouncilPane = ({ spriteSheet, council }) => {
   return (
     <Pane>
       <h2>Council</h2>
       <Row>
-        <PersonCard spriteSheet={spriteSheet} />
-        <PersonCard spriteSheet={spriteSheet} />
-        <PersonCard spriteSheet={spriteSheet} />
+        {council.map(person => (
+          <PersonCard key={person.name} spriteSheet={spriteSheet} {...person} />
+        ))}
       </Row>
     </Pane>
   );

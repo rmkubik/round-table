@@ -3,25 +3,25 @@ import styled from "styled-components";
 
 import Card from "../layout/Card";
 
-const PersonCard = ({ spriteSheet }) => {
+const PersonCard = ({ spriteSheet, name, familyName, stats, face }) => {
   return (
     <Card>
-      <h3>David</h3>
-      {spriteSheet.get(2, 2, 6, "gray1")}
+      <h3>{`${name}\n${familyName}`}</h3>
+      {spriteSheet.get(face.row, face.col, 6, "gray1")}
       <h4>Stats</h4>
       <table>
         <tbody>
           <tr>
             <td>Economics</td>
-            <td>6</td>
+            <td>{stats.economics}</td>
           </tr>
           <tr>
             <td>Military</td>
-            <td>2</td>
+            <td>{stats.military}</td>
           </tr>
           <tr>
             <td>Diplomacy</td>
-            <td>3</td>
+            <td>{stats.diplomacy}</td>
           </tr>
         </tbody>
       </table>
