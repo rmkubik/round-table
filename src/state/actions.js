@@ -1,5 +1,12 @@
 import { selectCurrentChoices } from "./selectors";
 
+const fireCouncilMember = (dispatch, state) => ({ index }) => {
+  dispatch({
+    type: "fireCouncilMember",
+    index
+  });
+};
+
 const chooseEvent = (dispatch, state) => ({ index }) => {
   const choices = selectCurrentChoices(state);
   const { requirements, effects } = choices[index];
@@ -23,5 +30,6 @@ const adjustStat = (dispatch, state) => ({ attribute, value }) => {
 
 export default {
   chooseEvent,
-  adjustStat
+  adjustStat,
+  fireCouncilMember
 };

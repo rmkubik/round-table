@@ -28,21 +28,19 @@ const FireButton = styled.button`
 `;
 
 const CouncilPane = ({ spriteSheet }) => {
-  const { state } = useAppStateContext();
+  const { state, actions } = useAppStateContext();
   const { council } = state;
 
   return (
     <Pane>
       <h2>Council</h2>
       <Row>
-        {council.map(person => (
-          <div>
-            <PersonCard
-              key={person.name}
-              spriteSheet={spriteSheet}
-              {...person}
-            />
-            <FireButton>Fire</FireButton>
+        {council.map((person, index) => (
+          <div key={`${person.name}-${person.familyName}`}>
+            <PersonCard spriteSheet={spriteSheet} {...person} />
+            <FireButton onClick={() => actions.fireCouncilMember({ index })}>
+              Fire
+            </FireButton>
           </div>
         ))}
       </Row>
