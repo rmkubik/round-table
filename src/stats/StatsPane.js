@@ -4,12 +4,12 @@ import Pane from "../layout/Pane";
 import Card from "../layout/Card";
 import PersonCard from "../council/PersonCard";
 
-const StatsPane = ({ spriteSheet, state, dispatch }) => {
+const StatsPane = ({ spriteSheet, realm, you, dispatch }) => {
   return (
     <Pane>
       <h2>Your Highness</h2>
 
-      <PersonCard spriteSheet={spriteSheet} {...state.you} />
+      <PersonCard spriteSheet={spriteSheet} {...you} />
 
       {/* <Card>
         <h3
@@ -44,19 +44,19 @@ const StatsPane = ({ spriteSheet, state, dispatch }) => {
         <tbody>
           <tr>
             <td>Population</td>
-            <td>{state.population}</td>
+            <td>{realm.population}</td>
           </tr>
           <tr>
             <td>Might</td>
-            <td>{state.might}</td>
+            <td>{realm.might}</td>
           </tr>
           <tr>
             <td>Gold</td>
-            <td>{state.gold}</td>
+            <td>{realm.gold}</td>
           </tr>
           <tr>
             <td>Honor</td>
-            <td>{state.honor}</td>
+            <td>{realm.honor}</td>
           </tr>
         </tbody>
       </table>

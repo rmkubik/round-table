@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -9,6 +9,7 @@ import RightColumn from "./layout/RightColumn";
 import EventsPane from "./events/EventsPane";
 import sheet from "../assets/images/round-table.png";
 import SpriteSheet from "./spritesheet/spritesheet";
+import useAppState from "./state";
 
 const theme = {
   palette: {
@@ -36,153 +37,21 @@ const spriteSheet = new SpriteSheet({
   tileHeight: 16
 });
 
-const initialState = {
-  gold: 0,
-  population: 100,
-  honor: 0,
-  might: 20,
-  council: [
-    {
-      name: "Richard",
-      familyName: "Lovelace",
-      stats: {
-        economics: 3,
-        diplomacy: 3,
-        military: 2
-      },
-      face: {
-        row: 0,
-        col: 1
-      }
-    },
-    {
-      name: "Elton",
-      familyName: "Vaporweave",
-      stats: {
-        economics: 4,
-        diplomacy: 3,
-        military: 5
-      },
-      face: {
-        row: 2,
-        col: 0
-      }
-    },
-    {
-      name: "David",
-      familyName: "Wintertoes",
-      stats: {
-        economics: 2,
-        diplomacy: 7,
-        military: 1
-      },
-      face: {
-        row: 2,
-        col: 2
-      }
-    }
-  ],
-  you: {
-    name: "Dianne",
-    familyName: "Wintertoes",
-    stats: {
-      economics: 6,
-      diplomacy: 3,
-      military: 2
-    },
-    face: {
-      row: 1,
-      col: 2
-    }
-  },
-  event: {
-    name: "A Dragon Approaches",
-    choices: [
-      {
-        name: "Recruit It",
-        requirements: [
-          {
-            attribute: "gold",
-            value: 50
-          },
-          {
-            attribute: "diplomacy",
-            value: 15
-          }
-        ],
-        effects: [
-          {
-            attribute: "gold",
-            value: -50
-          },
-          {
-            attribute: "might",
-            value: 100
-          }
-        ]
-      },
-      {
-        name: "Defeat It",
-        requirements: [
-          {
-            attribute: "military",
-            value: 25
-          },
-          {
-            attribute: "might",
-            value: 300
-          }
-        ],
-        effects: [
-          {
-            attribute: "honor",
-            value: 10
-          },
-          {
-            attribute: "might",
-            value: -100
-          }
-        ]
-      },
-      {
-        name: "Get Eaten",
-        requirements: [],
-        effects: [
-          {
-            attribute: "population",
-            value: -100
-          }
-        ]
-      }
-    ]
-  }
-};
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "increment":
-      return { [action.target]: state[action.target] + action.value };
-    case "decrement":
-      return { [action.target]: state[action.target] - action.value };
-    default:
-      throw new Error();
-  }
-}
-
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, actions } = useAppState();
+  console.log(state, actions);
 
   return (
     <ThemeProvider theme={theme}>
       <Main>
         <StatsPane
           spriteSheet={spriteSheet}
-          state={state}
-          dispatch={dispatch}
+          realm={state.realm}
+          you={state.you}
         />
         <RightColumn>
           <CouncilPane spriteSheet={spriteSheet} council={state.council} />
-          <EventsPane event={state.event} />
+          <EventsPane event={state.event} actions={actions} />
         </RightColumn>
       </Main>
     </ThemeProvider>

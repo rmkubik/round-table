@@ -1,24 +1,24 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Card from "../layout/Card";
 
-const ChoiceCard = ({ name, requirements, effects }) => {
+const ChoiceCard = ({ name, requirements, effects, actions, index }) => {
   return (
-    <Card>
+    <Card onClick={() => actions.adjustStat({ attribute: "gold", value: 100 })}>
       <h3>{name}</h3>
       <h4>Requirements</h4>
       <ul>
         {requirements.map(({ attribute, value }) => (
-          <>
+          <Fragment key={attribute}>
             <li>{`${attribute} ${value}`}</li>
-          </>
+          </Fragment>
         ))}
       </ul>
       <h4>Effects</h4>
       <ul>
         {effects.map(({ attribute, value }) => (
-          <>
+          <Fragment key={attribute}>
             <li>{`${attribute} ${value}`}</li>
-          </>
+          </Fragment>
         ))}
       </ul>
     </Card>
