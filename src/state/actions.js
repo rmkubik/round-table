@@ -1,4 +1,4 @@
-import { selectCurrentChoices } from "./selectors";
+import { selectCurrentChoices, selectTotalStats } from "./selectors";
 
 const addCouncilMember = (dispatch, state) => () => {
   dispatch({
@@ -17,13 +17,25 @@ const chooseEvent = (dispatch, state) => ({ index }) => {
   const choices = selectCurrentChoices(state);
   const { requirements, effects } = choices[index];
 
-  effects.forEach(effect => {
-    dispatch({
-      type: "adjustStat",
-      attribute: effect.attribute,
-      value: effect.value
+  const statTotals = selectTotalStats(state);
+  const { realm } = state;
+  const attributes = {
+    ...statTotals,
+    ...realm
+  };
+  const areAllRequirementsMet = requirements.every(
+    requirement => attributes[requirement.attribute] >= requirement.value
+  );
+
+  if (areAllRequirementsMet) {
+    effects.forEach(effect => {
+      dispatch({
+        type: "adjustStat",
+        attribute: effect.attribute,
+        value: effect.value
+      });
     });
-  });
+  }
 };
 
 const adjustStat = (dispatch, state) => ({ attribute, value }) => {
