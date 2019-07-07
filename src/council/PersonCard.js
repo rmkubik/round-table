@@ -6,7 +6,7 @@ import Card from "../layout/Card";
 const PersonCard = ({ spriteSheet, name, familyName, stats, face }) => {
   return (
     <Card>
-      <h3>{`${name}\n${familyName}`}</h3>
+      <h3>{`${name} ${familyName}`}</h3>
       {spriteSheet.get(face.row, face.col, 6, "gray1")}
       <h4>Stats</h4>
       <table>

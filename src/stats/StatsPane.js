@@ -2,12 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import Pane from "../layout/Pane";
 import Card from "../layout/Card";
+import PersonCard from "../council/PersonCard";
 
 const StatsPane = ({ spriteSheet, state, dispatch }) => {
   return (
     <Pane>
       <h2>Your Highness</h2>
-      <Card>
+
+      <PersonCard spriteSheet={spriteSheet} {...state.you} />
+
+      {/* <Card>
         <h3
           onClick={() =>
             dispatch({ type: "increment", value: 20, target: "gold" })
@@ -33,7 +37,7 @@ const StatsPane = ({ spriteSheet, state, dispatch }) => {
             </tr>
           </tbody>
         </table>
-      </Card>
+      </Card> */}
       <h3>The Realm</h3>
       <img src="https://via.placeholder.com/150" />
       <table>

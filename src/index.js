@@ -46,7 +46,7 @@ const initialState = {
       name: "Richard",
       familyName: "Lovelace",
       stats: {
-        economics: 6,
+        economics: 3,
         diplomacy: 3,
         military: 2
       },
@@ -59,9 +59,9 @@ const initialState = {
       name: "Elton",
       familyName: "Vaporweave",
       stats: {
-        economics: 6,
+        economics: 4,
         diplomacy: 3,
-        military: 2
+        military: 5
       },
       face: {
         row: 2,
@@ -72,16 +72,29 @@ const initialState = {
       name: "David",
       familyName: "Wintertoes",
       stats: {
-        economics: 6,
-        diplomacy: 3,
-        military: 2
+        economics: 2,
+        diplomacy: 7,
+        military: 1
       },
       face: {
         row: 2,
         col: 2
       }
     }
-  ]
+  ],
+  you: {
+    name: "Dianne",
+    familyName: "Wintertoes",
+    stats: {
+      economics: 6,
+      diplomacy: 3,
+      military: 2
+    },
+    face: {
+      row: 1,
+      col: 2
+    }
+  }
 };
 
 function reducer(state, action) {
