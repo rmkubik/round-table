@@ -1,9 +1,7 @@
-import { useReducer, createContext } from "react";
+import React, { useReducer, useContext, createContext } from "react";
 import reducers from "./reducers";
 import initialState from "./initialState";
 import rawActions from "./actions";
-
-const actionsContext = createContext();
 
 function withDispatch(actions, dispatch, state) {
   const actionEntries = Object.entries(actions).map(([key, action]) => {
@@ -20,4 +18,20 @@ const useAppState = () => {
   return { state, actions };
 };
 
-export default useAppState;
+const AppStateContext = createContext({ state: {}, actions: {} });
+
+const AppStateProvider = ({ children }) => {
+  const { state, actions } = useAppState();
+
+  return (
+    <AppStateContext.Provider value={{ state, actions }}>
+      {children}
+    </AppStateContext.Provider>
+  );
+};
+
+const useAppStateContext = () => {
+  return useContext(AppStateContext);
+};
+
+export { AppStateProvider, useAppStateContext };

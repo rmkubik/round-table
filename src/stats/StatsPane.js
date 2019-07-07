@@ -3,8 +3,12 @@ import styled from "styled-components";
 import Pane from "../layout/Pane";
 import Card from "../layout/Card";
 import PersonCard from "../council/PersonCard";
+import { useAppStateContext } from "../state";
 
-const StatsPane = ({ spriteSheet, realm, you, dispatch }) => {
+const StatsPane = ({ spriteSheet }) => {
+  const { state } = useAppStateContext();
+  const { realm, you } = state;
+
   return (
     <Pane>
       <h2>Your Highness</h2>

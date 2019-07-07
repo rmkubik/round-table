@@ -9,7 +9,7 @@ import RightColumn from "./layout/RightColumn";
 import EventsPane from "./events/EventsPane";
 import sheet from "../assets/images/round-table.png";
 import SpriteSheet from "./spritesheet/spritesheet";
-import useAppState from "./state";
+import { AppStateProvider } from "./state";
 
 const theme = {
   palette: {
@@ -38,22 +38,17 @@ const spriteSheet = new SpriteSheet({
 });
 
 const App = () => {
-  const { state, actions } = useAppState();
-  console.log(state, actions);
-
   return (
     <ThemeProvider theme={theme}>
-      <Main>
-        <StatsPane
-          spriteSheet={spriteSheet}
-          realm={state.realm}
-          you={state.you}
-        />
-        <RightColumn>
-          <CouncilPane spriteSheet={spriteSheet} council={state.council} />
-          <EventsPane event={state.event} actions={actions} />
-        </RightColumn>
-      </Main>
+      <AppStateProvider>
+        <Main>
+          <StatsPane spriteSheet={spriteSheet} />
+          <RightColumn>
+            <CouncilPane spriteSheet={spriteSheet} />
+            <EventsPane />
+          </RightColumn>
+        </Main>
+      </AppStateProvider>
     </ThemeProvider>
   );
 };

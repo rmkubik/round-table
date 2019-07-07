@@ -1,7 +1,10 @@
 import React, { Fragment } from "react";
 import Card from "../layout/Card";
+import { useAppStateContext } from "../state";
 
-const ChoiceCard = ({ name, requirements, effects, actions, index }) => {
+const ChoiceCard = ({ name, requirements, effects, index }) => {
+  const { actions } = useAppStateContext();
+
   return (
     <Card onClick={() => actions.adjustStat({ attribute: "gold", value: 100 })}>
       <h3>{name}</h3>

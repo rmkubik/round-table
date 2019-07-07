@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ChoiceCard from "./ChoiceCard";
 import Pane from "../layout/Pane";
+import { useAppStateContext } from "../state";
 
 const Row = styled.div`
   display: flex;
@@ -11,17 +12,20 @@ const Row = styled.div`
   }
 `;
 
-const CouncilPane = ({ event, actions }) => {
+const EventsPane = () => {
+  const { state } = useAppStateContext();
+  const { event } = state;
+
   return (
     <Pane>
       <h2>{event.name}</h2>
       <Row>
         {event.choices.map((choice, index) => (
-          <ChoiceCard key={index} actions={actions} index={index} {...choice} />
+          <ChoiceCard key={index} index={index} {...choice} />
         ))}
       </Row>
     </Pane>
   );
 };
 
-export default CouncilPane;
+export default EventsPane;

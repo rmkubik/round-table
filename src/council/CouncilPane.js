@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PersonCard from "./PersonCard";
 import Pane from "../layout/Pane";
+import { useAppStateContext } from "../state";
 
 const Row = styled.div`
   display: flex;
@@ -11,7 +12,10 @@ const Row = styled.div`
   }
 `;
 
-const CouncilPane = ({ spriteSheet, council }) => {
+const CouncilPane = ({ spriteSheet }) => {
+  const { state } = useAppStateContext();
+  const { council } = state;
+
   return (
     <Pane>
       <h2>Council</h2>
