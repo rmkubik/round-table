@@ -14,9 +14,6 @@ const StatsPane = ({ spriteSheet }) => {
   return (
     <Pane>
       <h2>Your Highness</h2>
-
-      {/* <PersonCard spriteSheet={spriteSheet} {...you} /> */}
-
       <Card>
         <h3>{`${you.name} ${you.familyName}`}</h3>
         {spriteSheet.get(you.face.row, you.face.col, 8, "gray1")}
@@ -41,34 +38,6 @@ const StatsPane = ({ spriteSheet }) => {
           </tbody>
         </table>
       </Card>
-
-      {/* <Card>
-        <h3
-          onClick={() =>
-            dispatch({ type: "increment", value: 20, target: "gold" })
-          }
-        >
-          You
-        </h3>
-        {spriteSheet.get(1, 1, 8, "gray1")}
-        <h4>Stats</h4>
-        <table>
-          <tbody>
-            <tr>
-              <td>Economics</td>
-              <td>6</td>
-            </tr>
-            <tr>
-              <td>Military</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>Diplomacy</td>
-              <td>3</td>
-            </tr>
-          </tbody>
-        </table>
-      </Card> */}
       <h3>The Realm</h3>
       {spriteSheet.get(3, 0, 8)}
       <table>
