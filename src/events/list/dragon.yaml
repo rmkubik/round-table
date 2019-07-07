@@ -1,29 +1,29 @@
 name: A Dragon Approaches
 choices:
-  - name: "Recruit It"
+  - name: Recruit It
     requirements:
-      - attribute: "gold"
+      - attribute: gold
         value: 50
-      - attribute: "diplomacy"
+      - attribute: diplomacy
         value: 15
     effects:
-      - attribute: "gold"
+      - attribute: gold
         value: -50
-      - attribute: "might"
+      - attribute: might
         value: 100
-  - name: "Defeat It"
+  - name: Defeat It
     requirements:
-      - attribute: "military"
+      - attribute: military
         value: 25
-      - attribute: "might"
+      - attribute: might
         value: 300
     effects:
-      - attribute: "honor"
+      - attribute: honor
         value: 10
-      - attribute: "might"
+      - attribute: might
         value: -100
-  - name: "Get Eaten"
+  - name: Get Eaten
     requirements: []
     effects:
-      - attribute: "population"
+      - attribute: population
         value: -100
