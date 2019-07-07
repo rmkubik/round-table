@@ -9,7 +9,7 @@ const SpriteContainer = styled.div`
 
 const Sprite = styled.div`
   background: url(${props => props.sheet}) -${props =>
-      props.row * props.height}px -${props => props.col * props.width}px;
+      props.col * props.width}px -${props => props.row * props.height}px;
   image-rendering: pixelated;
   width: ${props => props.width}px;
   height: ${props => props.height}px;

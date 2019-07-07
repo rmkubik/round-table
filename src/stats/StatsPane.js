@@ -70,7 +70,7 @@ const StatsPane = ({ spriteSheet }) => {
         </table>
       </Card> */}
       <h3>The Realm</h3>
-      <img src="https://via.placeholder.com/150" />
+      {spriteSheet.get(3, 0, 8)}
       <table>
         <tbody>
           <tr>
