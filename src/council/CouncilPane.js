@@ -14,8 +14,10 @@ const Row = styled.div`
 `;
 
 const FireButton = styled.button`
-  color: ${props => props.theme.palette.white};
+  color: ${props => props.theme.palette.slate1};
   background-color: ${props => props.theme.palette.red1};
+  border-color: ${props => props.theme.palette.red3};
+  border-width: 4px;
   border-radius: 2px;
   width: 100%;
   margin-top: 8px;
