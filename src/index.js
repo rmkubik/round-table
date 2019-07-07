@@ -94,6 +94,34 @@ const initialState = {
       row: 1,
       col: 2
     }
+  },
+  event: {
+    name: "A Dragon Approaches",
+    choices: [
+      {
+        name: "Recruit It",
+        requirements: [
+          {
+            attribute: "gold",
+            value: 50
+          },
+          {
+            attribute: "diplomacy",
+            value: 15
+          }
+        ],
+        effects: [
+          {
+            attribute: "gold",
+            value: -50
+          },
+          {
+            attribute: "might",
+            value: 100
+          }
+        ]
+      }
+    ]
   }
 };
 
@@ -121,7 +149,7 @@ const App = () => {
         />
         <RightColumn>
           <CouncilPane spriteSheet={spriteSheet} council={state.council} />
-          <EventsPane />
+          <EventsPane event={state.event} />
         </RightColumn>
       </Main>
     </ThemeProvider>

@@ -11,14 +11,14 @@ const Row = styled.div`
   }
 `;
 
-const CouncilPane = () => {
+const CouncilPane = ({ event }) => {
   return (
     <Pane>
-      <h2>A Dragon Approaches</h2>
+      <h2>{event.name}</h2>
       <Row>
-        <ChoiceCard />
-        <ChoiceCard />
-        <ChoiceCard />
+        {event.choices.map(choice => (
+          <ChoiceCard {...choice} />
+        ))}
       </Row>
     </Pane>
   );
