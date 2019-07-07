@@ -37,11 +37,15 @@ const StatsPane = ({ spriteSheet }) => {
             <td>600</td>
           </tr>
           <tr>
-            <td>Soldiers</td>
+            <td>Might</td>
             <td>120</td>
           </tr>
           <tr>
             <td>Gold</td>
+            <td>85</td>
+          </tr>
+          <tr>
+            <td>Honor</td>
             <td>85</td>
           </tr>
         </tbody>

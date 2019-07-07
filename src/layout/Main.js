@@ -9,6 +9,10 @@ const Main = styled.main`
   box-sizing: content-box;
   padding: 10px;
   background-color: ${props => props.theme.palette.slate2};
+
+  h2 {
+    margin-top: 0;
+  }
 `;
 
 export default Main;
