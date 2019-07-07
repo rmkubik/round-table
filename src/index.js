@@ -18,16 +18,13 @@ const spriteSheet = new SpriteSheet({
 
 const App = () => {
   return (
-    <div>
-      <h1>Round Table</h1>
-      <Main>
-        <StatsPane spriteSheet={spriteSheet} />
-        <RightColumn>
-          <CouncilPane spriteSheet={spriteSheet} />
-          <EventsPane />
-        </RightColumn>
-      </Main>
-    </div>
+    <Main>
+      <StatsPane spriteSheet={spriteSheet} />
+      <RightColumn>
+        <CouncilPane spriteSheet={spriteSheet} />
+        <EventsPane />
+      </RightColumn>
+    </Main>
   );
 };
 
