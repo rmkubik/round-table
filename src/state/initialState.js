@@ -1,3 +1,5 @@
+import dragon from "../events/list/dragon.yaml";
+
 const initialState = {
   realm: {
     gold: 0,
@@ -62,67 +64,7 @@ const initialState = {
       col: 2
     }
   },
-  event: {
-    name: "A Dragon Approaches",
-    choices: [
-      {
-        name: "Recruit It",
-        requirements: [
-          {
-            attribute: "gold",
-            value: 50
-          },
-          {
-            attribute: "diplomacy",
-            value: 15
-          }
-        ],
-        effects: [
-          {
-            attribute: "gold",
-            value: -50
-          },
-          {
-            attribute: "might",
-            value: 100
-          }
-        ]
-      },
-      {
-        name: "Defeat It",
-        requirements: [
-          {
-            attribute: "military",
-            value: 25
-          },
-          {
-            attribute: "might",
-            value: 300
-          }
-        ],
-        effects: [
-          {
-            attribute: "honor",
-            value: 10
-          },
-          {
-            attribute: "might",
-            value: -100
-          }
-        ]
-      },
-      {
-        name: "Get Eaten",
-        requirements: [],
-        effects: [
-          {
-            attribute: "population",
-            value: -100
-          }
-        ]
-      }
-    ]
-  }
+  event: dragon
 };
 
 export default initialState;
