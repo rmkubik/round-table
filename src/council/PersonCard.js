@@ -23,6 +23,10 @@ const PersonCard = ({ spriteSheet, name, familyName, stats, face }) => {
             <td>Diplomacy</td>
             <td>{stats.diplomacy}</td>
           </tr>
+          <tr>
+            <td>Loyalty</td>
+            <td>{stats.loyalty}</td>
+          </tr>
         </tbody>
       </table>
     </Card>

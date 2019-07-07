@@ -20,6 +20,7 @@ const FireButton = styled.button`
   width: 100%;
   margin-top: 8px;
   padding: 4px;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 2px 3px ${props => props.theme.palette.black};

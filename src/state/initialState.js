@@ -12,7 +12,8 @@ const initialState = {
       stats: {
         economics: 3,
         diplomacy: 3,
-        military: 2
+        military: 2,
+        loyalty: 50
       },
       face: {
         row: 0,
@@ -25,7 +26,8 @@ const initialState = {
       stats: {
         economics: 4,
         diplomacy: 3,
-        military: 5
+        military: 5,
+        loyalty: 50
       },
       face: {
         row: 2,
@@ -38,7 +40,8 @@ const initialState = {
       stats: {
         economics: 2,
         diplomacy: 7,
-        military: 1
+        military: 1,
+        loyalty: 50
       },
       face: {
         row: 2,
