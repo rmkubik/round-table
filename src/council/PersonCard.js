@@ -1,9 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-const ChoiceCard = ({ spriteSheet }) => {
+const Card = styled.div`
+  border: black solid 1px;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: ${props => props.theme.palette.slate1};
+
+  h3 {
+    margin: 0;
+  }
+
+  h4 {
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+`;
+
+const PersonCard = ({ spriteSheet }) => {
   return (
-    <div>
+    <Card>
       <h3>David</h3>
       {spriteSheet.get(2, 2, 6)}
       <h4>Stats</h4>
@@ -23,8 +39,8 @@ const ChoiceCard = ({ spriteSheet }) => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </Card>
   );
 };
 
-export default ChoiceCard;
+export default PersonCard;

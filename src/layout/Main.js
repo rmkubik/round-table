@@ -5,9 +5,10 @@ const Main = styled.main`
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 3fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
   box-sizing: content-box;
-  padding: 20px;
+  padding: 10px;
+  background-color: ${props => props.theme.palette.slate2};
 `;
 
 export default Main;

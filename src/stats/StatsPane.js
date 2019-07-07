@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import Pane from "../layout/Pane";
 
 const StatsPane = ({ spriteSheet }) => {
   return (
-    <section>
+    <Pane>
       <h2>You</h2>
       {spriteSheet.get(1, 1, 8)}
       <h3>Stats</h3>
@@ -41,7 +42,7 @@ const StatsPane = ({ spriteSheet }) => {
           </tr>
         </tbody>
       </table>
-    </section>
+    </Pane>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Person from "./Person";
+import PersonCard from "./PersonCard";
+import Pane from "../layout/Pane";
 
 const Row = styled.div`
   display: flex;
@@ -12,14 +13,14 @@ const Row = styled.div`
 
 const CouncilPane = ({ spriteSheet }) => {
   return (
-    <section>
+    <Pane>
       <h2>Council</h2>
       <Row>
-        <Person spriteSheet={spriteSheet} />
-        <Person spriteSheet={spriteSheet} />
-        <Person spriteSheet={spriteSheet} />
+        <PersonCard spriteSheet={spriteSheet} />
+        <PersonCard spriteSheet={spriteSheet} />
+        <PersonCard spriteSheet={spriteSheet} />
       </Row>
-    </section>
+    </Pane>
   );
 };
 
