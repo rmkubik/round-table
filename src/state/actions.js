@@ -1,5 +1,11 @@
 import { selectCurrentChoices } from "./selectors";
 
+const addCouncilMember = (dispatch, state) => () => {
+  dispatch({
+    type: "addCouncilMember"
+  });
+};
+
 const fireCouncilMember = (dispatch, state) => ({ index }) => {
   dispatch({
     type: "fireCouncilMember",
@@ -31,5 +37,6 @@ const adjustStat = (dispatch, state) => ({ attribute, value }) => {
 export default {
   chooseEvent,
   adjustStat,
-  fireCouncilMember
+  fireCouncilMember,
+  addCouncilMember
 };

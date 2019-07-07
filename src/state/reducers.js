@@ -20,10 +20,10 @@ function reducer(state, action) {
         council: removeIndex(state.council, action.index)
       };
 
-    case "hireCouncilMember":
+    case "addCouncilMember":
       return {
         ...state,
-        council: state.council.concat(index)
+        council: state.council.concat(state.council[0])
       };
     default:
       throw new Error();

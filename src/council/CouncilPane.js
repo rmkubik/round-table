@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PersonCard from "./PersonCard";
+import AddMemberCard from "./AddMemberCard";
 import Pane from "../layout/Pane";
 import { useAppStateContext } from "../state";
 
@@ -36,13 +37,14 @@ const CouncilPane = ({ spriteSheet }) => {
       <h2>Council</h2>
       <Row>
         {council.map((person, index) => (
-          <div key={`${person.name}-${person.familyName}`}>
+          <div key={index}>
             <PersonCard spriteSheet={spriteSheet} {...person} />
             <FireButton onClick={() => actions.fireCouncilMember({ index })}>
               Fire
             </FireButton>
           </div>
         ))}
+        <AddMemberCard />
       </Row>
     </Pane>
   );
