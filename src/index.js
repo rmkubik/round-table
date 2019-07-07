@@ -120,6 +120,39 @@ const initialState = {
             value: 100
           }
         ]
+      },
+      {
+        name: "Defeat It",
+        requirements: [
+          {
+            attribute: "military",
+            value: 25
+          },
+          {
+            attribute: "might",
+            value: 300
+          }
+        ],
+        effects: [
+          {
+            attribute: "honor",
+            value: 10
+          },
+          {
+            attribute: "might",
+            value: -100
+          }
+        ]
+      },
+      {
+        name: "Get Eaten",
+        requirements: [],
+        effects: [
+          {
+            attribute: "population",
+            value: -100
+          }
+        ]
       }
     ]
   }
