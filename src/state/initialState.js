@@ -1,5 +1,4 @@
-import dragon from "../events/list/dragon.yaml";
-import gondor from "../events/list/gondor.yaml";
+import events from "../events/list";
 
 const initialState = {
   realm: {
@@ -65,7 +64,7 @@ const initialState = {
       col: 2
     }
   },
-  event: gondor
+  event: events.dragon
 };
 
 export default initialState;

@@ -1,5 +1,12 @@
 import { selectCurrentChoices, selectTotalStats } from "./selectors";
 
+const pickNewEvent = (dispatch, state) => ({ key }) => {
+  dispatch({
+    type: "setNewEvent",
+    key
+  });
+};
+
 const addCouncilMember = (dispatch, state) => () => {
   dispatch({
     type: "addCouncilMember"
