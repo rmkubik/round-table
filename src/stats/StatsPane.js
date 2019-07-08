@@ -6,13 +6,17 @@ import PersonCard from "../council/PersonCard";
 import { useAppStateContext } from "../state";
 import { selectTotalStats } from "../state/selectors";
 
+const PaneWithMargin = styled(Pane)`
+  margin-right: 10px;
+`;
+
 const StatsPane = ({ spriteSheet }) => {
   const { state } = useAppStateContext();
   const { realm, you, council } = state;
   const totals = selectTotalStats(state);
 
   return (
-    <Pane>
+    <PaneWithMargin>
       <h2>Your Highness</h2>
       <Card>
         <h3>{`${you.name} ${you.familyName}`}</h3>
@@ -60,7 +64,7 @@ const StatsPane = ({ spriteSheet }) => {
           </tr>
         </tbody>
       </table>
-    </Pane>
+    </PaneWithMargin>
   );
 };
 

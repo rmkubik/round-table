@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Main = styled.main`
-  display: grid;
-  height: 100vh;
+  /* display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 10px;
-  box-sizing: content-box;
+  grid-gap: 10px; */
+  display: flex;
+  height: 100vh;
+  overflow: scroll;
   padding: 10px;
   background-color: ${props => props.theme.palette.slate2};
 

@@ -5,7 +5,7 @@ const Row = styled.div`
   flex-wrap: wrap;
 
   > * {
-    margin: 20px;
+    margin: 10px;
   }
 `;
 

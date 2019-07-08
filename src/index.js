@@ -22,6 +22,23 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Press Start 2P', sans-serif;
     margin: 0;
+    box-sizing: content-box;
+  }
+
+  h2 {
+    font-size: 2vh;
+  }
+
+  h3 {
+    font-size: 1.8vh;
+  }
+
+  h4 {
+    font-size: 1.6vh;
+  }
+
+  table, p {
+    font-size: 1.4vh;
   }
 `;
 

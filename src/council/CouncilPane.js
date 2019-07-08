@@ -24,12 +24,16 @@ const FireButton = styled.button`
   }
 `;
 
+const PaneWithMargin = styled(Pane)`
+  margin-bottom: 10px;
+`;
+
 const CouncilPane = ({ spriteSheet }) => {
   const { state, actions } = useAppStateContext();
   const { council } = state;
 
   return (
-    <Pane>
+    <PaneWithMargin>
       <h2>Council</h2>
       <Row>
         {council.map((person, index) => (
@@ -42,7 +46,7 @@ const CouncilPane = ({ spriteSheet }) => {
         ))}
         <AddMemberCard />
       </Row>
-    </Pane>
+    </PaneWithMargin>
   );
 };
 
