@@ -1,6 +1,12 @@
 import React, { Fragment } from "react";
 import Card from "../layout/Card";
 import { useAppStateContext } from "../state";
+import styled from "styled-components";
+import { isRequirementStatisfied } from "./requirements";
+
+const Requirement = styled.li`
+  color: ${props => (props.satisfied ? "inherit" : props.theme.palette.red1)};
+`;
 
 const ChoiceCard = ({ name, requirements, effects, index }) => {
   const { actions } = useAppStateContext();
@@ -12,7 +18,9 @@ const ChoiceCard = ({ name, requirements, effects, index }) => {
       <ul>
         {requirements.map(({ attribute, value }) => (
           <Fragment key={attribute}>
-            <li>{`${attribute} ${value}`}</li>
+            <Requirement
+              satisfied={true}
+            >{`${attribute} ${value}`}</Requirement>
           </Fragment>
         ))}
       </ul>

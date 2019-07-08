@@ -9,4 +9,13 @@ const selectTotalStats = state => ({
   military: sumStat(state.council.concat(state.you), "military")
 });
 
-export { selectCurrentChoices, selectTotalStats };
+const selectAllAttributes = state => {
+  const statTotals = selectTotalStats(state);
+  const { realm } = state;
+  return {
+    ...statTotals,
+    ...realm
+  };
+};
+
+export { selectCurrentChoices, selectTotalStats, selectAllAttributes };

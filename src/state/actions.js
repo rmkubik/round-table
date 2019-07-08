@@ -1,6 +1,7 @@
-import { selectCurrentChoices, selectTotalStats } from "./selectors";
+import { selectCurrentChoices, selectAllAttributes } from "./selectors";
 import events from "../events/list";
 import { pickRandom } from "../utils";
+import { isRequirementStatisfied } from "../events/requirements";
 
 const pickNewEvent = (dispatch, state) => ({ key }) => {
   dispatch({
@@ -26,14 +27,8 @@ const chooseEvent = (dispatch, state) => ({ index }) => {
   const choices = selectCurrentChoices(state);
   const { requirements, effects } = choices[index];
 
-  const statTotals = selectTotalStats(state);
-  const { realm } = state;
-  const attributes = {
-    ...statTotals,
-    ...realm
-  };
-  const areAllRequirementsMet = requirements.every(
-    requirement => attributes[requirement.attribute] >= requirement.value
+  const areAllRequirementsMet = requirements.every(requirement =>
+    isRequirementStatisfied(state, requirement)
   );
 
   if (areAllRequirementsMet) {
