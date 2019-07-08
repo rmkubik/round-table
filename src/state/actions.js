@@ -1,7 +1,6 @@
 import { selectCurrentChoices, selectTotalStats } from "./selectors";
 import events from "../events/list";
-
-const pickRandom = array => array[Math.floor(Math.random() * array.length)];
+import { pickRandom } from "../utils";
 
 const pickNewEvent = (dispatch, state) => ({ key }) => {
   dispatch({
