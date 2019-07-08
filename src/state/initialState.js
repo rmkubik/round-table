@@ -11,7 +11,7 @@ const initialState = {
   },
   council: [generatePerson(), generatePerson(), generatePerson()],
   you: generatePerson(),
-  event: pickRandom(events)
+  event: pickRandom(Object.values(events))
 };
 
 export default initialState;
