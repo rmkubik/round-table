@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import WebFont from "webfontloader";
 
 import CouncilPane from "./council/CouncilPane";
 import StatsPane from "./stats/StatsPane";
@@ -10,6 +11,19 @@ import EventsPane from "./events/EventsPane";
 import sheet from "../assets/images/round-table.png";
 import SpriteSheet from "./spritesheet/spritesheet";
 import { AppStateProvider } from "./state";
+
+WebFont.load({
+  google: {
+    families: ["Press Start 2P"]
+  }
+});
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 0;
+  }
+`;
 
 const theme = {
   palette: {
@@ -46,6 +60,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <AppStateProvider>
         <Main>
+          <GlobalStyles />
           <StatsPane spriteSheet={spriteSheet} />
           <RightColumn>
             <CouncilPane spriteSheet={spriteSheet} />

@@ -2,15 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import ChoiceCard from "./ChoiceCard";
 import Pane from "../layout/Pane";
+import Row from "../layout/Row";
 import { useAppStateContext } from "../state";
-
-const Row = styled.div`
-  display: flex;
-
-  > * {
-    margin: 20px;
-  }
-`;
 
 const EventsPane = () => {
   const { state } = useAppStateContext();

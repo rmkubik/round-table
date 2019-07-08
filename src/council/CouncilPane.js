@@ -3,15 +3,8 @@ import styled from "styled-components";
 import PersonCard from "./PersonCard";
 import AddMemberCard from "./AddMemberCard";
 import Pane from "../layout/Pane";
+import Row from "../layout/Row";
 import { useAppStateContext } from "../state";
-
-const Row = styled.div`
-  display: flex;
-
-  > * {
-    margin: 20px;
-  }
-`;
 
 const FireButton = styled.button`
   color: ${props => props.theme.palette.slate1};

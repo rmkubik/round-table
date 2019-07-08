@@ -2,10 +2,15 @@ import React, { Fragment } from "react";
 import Card from "../layout/Card";
 import { useAppStateContext } from "../state";
 import styled from "styled-components";
+import { isPositive } from "../utils";
 import { isRequirementStatisfied } from "./requirements";
 
 const Requirement = styled.li`
   color: ${props => (props.satisfied ? "inherit" : props.theme.palette.red1)};
+`;
+
+const Effect = styled.li`
+  color: ${props => (props.positive ? "inherit" : props.theme.palette.red1)};
 `;
 
 const ChoiceCard = ({ name, requirements, effects, index }) => {
@@ -28,7 +33,9 @@ const ChoiceCard = ({ name, requirements, effects, index }) => {
       <ul>
         {effects.map(({ attribute, value }) => (
           <Fragment key={attribute}>
-            <li>{`${attribute} ${value}`}</li>
+            <Effect
+              positive={isPositive(value)}
+            >{`${attribute} ${value}`}</Effect>
           </Fragment>
         ))}
       </ul>
