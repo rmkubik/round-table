@@ -9,7 +9,7 @@ const Requirement = styled.li`
 `;
 
 const ChoiceCard = ({ name, requirements, effects, index }) => {
-  const { actions } = useAppStateContext();
+  const { state, actions } = useAppStateContext();
 
   return (
     <Card hover={true} onClick={() => actions.chooseEvent({ index })}>
@@ -19,7 +19,7 @@ const ChoiceCard = ({ name, requirements, effects, index }) => {
         {requirements.map(({ attribute, value }) => (
           <Fragment key={attribute}>
             <Requirement
-              satisfied={true}
+              satisfied={isRequirementStatisfied(state, { attribute, value })}
             >{`${attribute} ${value}`}</Requirement>
           </Fragment>
         ))}
