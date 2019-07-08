@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html",
+    "start": "run-p dev:*",
+    "dev:watch": "parcel src/index.html",
+    "dev:watchEventFiles": "node tasks/importEvents",
     "build": "parcel build src/index.html"
   },
   "keywords": [],
@@ -15,5 +17,11 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "jscodeshift": "^0.6.4",
+    "lodash": "^4.17.11",
+    "npm-run-all": "^4.1.5",
+    "watch": "^1.0.2"
   }
 }

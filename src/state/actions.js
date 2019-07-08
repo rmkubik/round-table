@@ -1,4 +1,7 @@
 import { selectCurrentChoices, selectTotalStats } from "./selectors";
+import events from "../events/list";
+
+const pickRandom = array => array[Math.floor(Math.random() * array.length)];
 
 const pickNewEvent = (dispatch, state) => ({ key }) => {
   dispatch({
@@ -42,6 +45,11 @@ const chooseEvent = (dispatch, state) => ({ index }) => {
         value: effect.value
       });
     });
+
+    dispatch({
+      type: "setNewEvent",
+      key: pickRandom(Object.keys(events))
+    });
   }
 };
 
@@ -57,5 +65,6 @@ export default {
   chooseEvent,
   adjustStat,
   fireCouncilMember,
-  addCouncilMember
+  addCouncilMember,
+  pickNewEvent
 };

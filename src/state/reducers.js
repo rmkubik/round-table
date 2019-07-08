@@ -1,3 +1,5 @@
+import events from "../events/list";
+
 const removeIndex = (array, index) => [
   ...array.slice(0, index),
   ...array.slice(index + 1)
@@ -24,6 +26,12 @@ function reducer(state, action) {
       return {
         ...state,
         council: state.council.concat(state.council[0])
+      };
+
+    case "setNewEvent":
+      return {
+        ...state,
+        event: events[action.key]
       };
     default:
       throw new Error();
