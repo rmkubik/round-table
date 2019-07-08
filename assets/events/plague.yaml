@@ -1,0 +1,21 @@
+name: A Plague Has Stricken the Land
+choices:
+  - name: Hire doctors to fight the sickness
+    requirements:
+      - attribute: gold
+        value: 100
+    effects:
+      - attribute: gold
+        value: -100
+  - name: Quarantine the ill
+    requirements:
+      - attribute: might
+        value: 50
+    effects:
+      - attribute: population
+        value: -100
+  - name: Let the rats eat them
+    requirements: []
+    effects:
+      - attribute: population
+        value: -200
