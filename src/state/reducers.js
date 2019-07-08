@@ -1,4 +1,5 @@
 import events from "../events/list";
+import generatePerson from "../council/generatePerson";
 
 const removeIndex = (array, index) => [
   ...array.slice(0, index),
@@ -25,7 +26,7 @@ function reducer(state, action) {
     case "addCouncilMember":
       return {
         ...state,
-        council: state.council.concat(state.council[0])
+        council: state.council.concat(generatePerson())
       };
 
     case "setNewEvent":
