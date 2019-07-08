@@ -1,12 +1,13 @@
 import events from "../events/list";
 import generatePerson from "../council/generatePerson";
+import { between } from "../utils";
 
 const initialState = {
   realm: {
-    gold: 0,
-    population: 100,
+    gold: between(100, 300),
+    population: between(100, 1000),
     honor: 0,
-    might: 20
+    might: between(50, 200)
   },
   council: [generatePerson(), generatePerson(), generatePerson()],
   you: generatePerson(),
