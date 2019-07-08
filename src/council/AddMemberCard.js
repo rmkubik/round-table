@@ -13,9 +13,12 @@ const AddMemberCard = () => {
   const { actions } = useAppStateContext();
 
   return (
-    <Card hover={true} onClick={() => actions.addCouncilMember()}>
-      <PlusIcon>+</PlusIcon>
-    </Card>
+    <div>
+      <Card hover={true} onClick={() => actions.addCouncilMember()}>
+        <PlusIcon>+</PlusIcon>
+      </Card>
+      <p>-100 gold</p>
+    </div>
   );
 };
 

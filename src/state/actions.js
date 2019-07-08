@@ -10,10 +10,23 @@ const pickNewEvent = (dispatch, state) => ({ key }) => {
   });
 };
 
+const councilMemberHireCost = 100;
 const addCouncilMember = (dispatch, state) => () => {
-  dispatch({
-    type: "addCouncilMember"
-  });
+  if (
+    isRequirementStatisfied(state, {
+      attribute: "gold",
+      value: councilMemberHireCost
+    })
+  ) {
+    dispatch({
+      type: "adjustStat",
+      attribute: "gold",
+      value: -councilMemberHireCost
+    });
+    dispatch({
+      type: "addCouncilMember"
+    });
+  }
 };
 
 const fireCouncilMember = (dispatch, state) => ({ index }) => {
