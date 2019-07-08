@@ -5,6 +5,7 @@ const Card = styled.div`
   border-radius: 4px;
   padding: 25px;
   background-color: ${props => props.theme.palette.slate1};
+  max-width: 14vw;
 
   h3 {
     margin-top: 0;

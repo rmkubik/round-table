@@ -19,10 +19,16 @@ WebFont.load({
 });
 
 const GlobalStyles = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
   body {
     font-family: 'Press Start 2P', sans-serif;
     margin: 0;
-    box-sizing: content-box;
   }
 
   h2 {
@@ -37,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.6vh;
   }
 
-  table, p {
+  table, p, li {
     font-size: 1.4vh;
   }
 `;
