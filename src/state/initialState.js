@@ -1,6 +1,6 @@
 import events from "../events/list";
 import generatePerson from "../council/generatePerson";
-import { between } from "../utils";
+import { between, pickRandom } from "../utils";
 
 const initialState = {
   realm: {
@@ -11,7 +11,7 @@ const initialState = {
   },
   council: [generatePerson(), generatePerson(), generatePerson()],
   you: generatePerson(),
-  event: events.dragon
+  event: pickRandom(events)
 };
 
 export default initialState;
