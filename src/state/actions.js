@@ -1,7 +1,8 @@
 import { selectCurrentChoices, selectAllAttributes } from "./selectors";
 import events from "../events/list";
-import { pickRandom } from "../utils";
+import { pickRandom, isPositive } from "../utils";
 import { isRequirementStatisfied } from "../events/requirements";
+import { updateLoyalty } from "../council/loyalty";
 
 const pickNewEvent = (dispatch, state) => ({ key }) => {
   dispatch({
@@ -36,6 +37,16 @@ const fireCouncilMember = (dispatch, state) => ({ index }) => {
   });
 };
 
+const executeChoiceEffects = (effects, dispatch) => {
+  effects.forEach(effect => {
+    dispatch({
+      type: "adjustStat",
+      attribute: effect.attribute,
+      value: effect.value
+    });
+  });
+};
+
 const chooseEvent = (dispatch, state) => ({ index }) => {
   const choices = selectCurrentChoices(state);
   const { requirements, effects } = choices[index];
@@ -45,13 +56,9 @@ const chooseEvent = (dispatch, state) => ({ index }) => {
   );
 
   if (areAllRequirementsMet) {
-    effects.forEach(effect => {
-      dispatch({
-        type: "adjustStat",
-        attribute: effect.attribute,
-        value: effect.value
-      });
-    });
+    executeChoiceEffects(effects, dispatch);
+
+    updateLoyalty(state, choices[index], dispatch);
 
     dispatch({
       type: "setNewEvent",

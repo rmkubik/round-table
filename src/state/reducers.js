@@ -1,8 +1,15 @@
 import events from "../events/list";
 import generatePerson from "../council/generatePerson";
+import merge from "lodash/merge";
 
 const removeIndex = (array, index) => [
   ...array.slice(0, index),
+  ...array.slice(index + 1)
+];
+
+const modifyIndex = (array, index, modifications) => [
+  ...array.slice(0, index),
+  merge(array[index], modifications),
   ...array.slice(index + 1)
 ];
 
@@ -15,6 +22,12 @@ function reducer(state, action) {
           ...state.realm,
           [action.attribute]: state.realm[action.attribute] + action.value
         }
+      };
+
+    case "modifyCouncilMember":
+      return {
+        ...state,
+        council: modifyIndex(state.council, action.index, action.modifications)
       };
 
     case "fireCouncilMember":

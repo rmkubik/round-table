@@ -19,4 +19,6 @@ function generatePerson() {
   };
 }
 
+console.log(generatePerson);
+
 export default generatePerson;

@@ -66,7 +66,8 @@ const theme = {
     red1: "#ea323c",
     red2: "#c42430",
     red3: "#891e2b",
-    red4: "#571c27"
+    red4: "#571c27",
+    green1: "green"
   }
 };
 

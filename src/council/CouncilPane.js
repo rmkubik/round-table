@@ -38,7 +38,7 @@ const CouncilPane = ({ spriteSheet }) => {
       <Row>
         {council.map((person, index) => (
           <div key={index}>
-            <PersonCard spriteSheet={spriteSheet} {...person} />
+            <PersonCard spriteSheet={spriteSheet} person={person} />
             <FireButton onClick={() => actions.fireCouncilMember({ index })}>
               Fire
             </FireButton>
