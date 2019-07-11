@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { getHighestStat } from "./loyalty";
 import startCase from "lodash/startCase";
+import { TweenMax } from "gsap";
 
+import { getHighestStat } from "./loyalty";
 import Card from "../layout/Card";
 
 const StatRow = styled.tr`
@@ -12,8 +13,26 @@ const StatRow = styled.tr`
 const Stat = ({ person, stat }) => {
   const { stats } = person;
 
+  let statRowRef = useRef(null);
+
+  useEffect(() => {
+    if (stat === "loyalty") {
+      console.log(";pya;ty changed");
+      TweenMax.to(statRowRef, 0.1, {
+        scale: 1.05,
+        repeat: 1,
+        yoyo: true
+      });
+    }
+  }, [stats.loyalty]);
+
   return (
-    <StatRow highest={getHighestStat(person) === stat}>
+    <StatRow
+      highest={getHighestStat(person) === stat}
+      ref={element => {
+        statRowRef = element;
+      }}
+    >
       <td>{startCase(stat)}</td>
       <td>{stats[stat]}</td>
     </StatRow>
