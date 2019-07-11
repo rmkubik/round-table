@@ -5,6 +5,7 @@ import { TweenMax } from "gsap";
 
 import { getHighestStat } from "./loyalty";
 import Card from "../layout/Card";
+import { isPositive, usePrevious } from "../utils";
 
 const StatRow = styled.tr`
   color: ${props => (props.highest ? props.theme.palette.green1 : "inherit")};
@@ -14,14 +15,29 @@ const Stat = ({ person, stat }) => {
   const { stats } = person;
 
   let statRowRef = useRef(null);
+  const prevLoyalty = usePrevious(stats.loyalty);
 
   useEffect(() => {
     if (stat === "loyalty") {
-      console.log(";pya;ty changed");
       TweenMax.to(statRowRef, 0.1, {
         scale: 1.05,
+        color: "red",
         repeat: 1,
+        ease: "Power1",
         yoyo: true
+      });
+
+      const color = isPositive(stats.loyalty - prevLoyalty) ? "green" : "red";
+
+      TweenMax.to(statRowRef, 0.1, {
+        color,
+        ease: "Power1",
+        onComplete: () => {
+          TweenMax.to(statRowRef, 1, {
+            color: "black",
+            ease: "Power1"
+          });
+        }
       });
     }
   }, [stats.loyalty]);
