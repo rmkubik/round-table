@@ -18,4 +18,14 @@ const selectAllAttributes = state => {
   };
 };
 
-export { selectCurrentChoices, selectTotalStats, selectAllAttributes };
+const selectCouncilMembersWithLoyaltyBelowThreshold = (state, threshold) => {
+  const { council } = state;
+  return council.filter(person => person.stats.loyalty <= threshold);
+};
+
+export {
+  selectCurrentChoices,
+  selectTotalStats,
+  selectAllAttributes,
+  selectCouncilMembersWithLoyaltyBelowThreshold
+};

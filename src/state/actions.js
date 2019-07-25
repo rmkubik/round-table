@@ -1,4 +1,8 @@
-import { selectCurrentChoices, selectAllAttributes } from "./selectors";
+import {
+  selectCurrentChoices,
+  selectAllAttributes,
+  selectCouncilMembersWithLoyaltyBelowThreshold
+} from "./selectors";
 import events from "../events/list";
 import { pickRandom, isPositive } from "../utils";
 import { isRequirementStatisfied } from "../events/requirements";
@@ -60,10 +64,17 @@ const chooseEvent = (dispatch, state) => ({ index }) => {
 
     updateLoyalty(state, choices[index], dispatch);
 
-    dispatch({
-      type: "setNewEvent",
-      key: pickRandom(Object.keys(events))
-    });
+    if (selectCouncilMembersWithLoyaltyBelowThreshold(state, 15).length > 0) {
+      dispatch({
+        type: "setNewEvent",
+        key: "councilMemberResigned"
+      });
+    } else {
+      dispatch({
+        type: "setNewEvent",
+        key: pickRandom(Object.keys(events))
+      });
+    }
   }
 };
 

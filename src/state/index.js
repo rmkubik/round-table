@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, createContext } from "react";
+import React, { useReducer, useRef, useContext, createContext } from "react";
 import reducers from "./reducers";
 import initialState from "./initialState";
 import rawActions from "./actions";
@@ -13,6 +13,7 @@ function withDispatch(actions, dispatch, state) {
 
 const useAppState = () => {
   const [state, dispatch] = useReducer(reducers, initialState);
+
   const actions = withDispatch(rawActions, dispatch, state);
 
   return { state, actions };

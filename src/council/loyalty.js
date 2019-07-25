@@ -16,8 +16,6 @@ const getHighestStat = person => {
   return highestStat;
 };
 
-console.log(getHighestStat);
-
 const getAttributeOfConcern = person => {
   const highestStat = getHighestStat(person);
 

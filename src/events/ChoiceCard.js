@@ -24,7 +24,10 @@ const ChoiceCard = ({ name, requirements, effects, index }) => {
         {requirements.map(({ attribute, value }) => (
           <Fragment key={attribute}>
             <Requirement
-              satisfied={isRequirementStatisfied(state, { attribute, value })}
+              satisfied={isRequirementStatisfied(state, {
+                attribute,
+                value
+              })}
             >{`${attribute} ${value}`}</Requirement>
           </Fragment>
         ))}
