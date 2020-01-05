@@ -43,11 +43,25 @@ const fireCouncilMember = (dispatch, state) => ({ index }) => {
 
 const executeChoiceEffects = (effects, dispatch) => {
   effects.forEach(effect => {
-    dispatch({
-      type: "adjustStat",
-      attribute: effect.attribute,
-      value: effect.value
-    });
+    if (effect.attribute === "loseMember") {
+      const lowMembers = selectCouncilMembersWithLoyaltyBelowThreshold(
+        state,
+        15
+      );
+
+      lowMembers.forEach()
+
+      dispatch({
+        type: "fireCouncilMember",
+        index
+      });
+    } else {
+      dispatch({
+        type: "adjustStat",
+        attribute: effect.attribute,
+        value: effect.value
+      });
+    }
   });
 };
 

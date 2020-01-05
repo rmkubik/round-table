@@ -1,29 +1,17 @@
 name: A Council Member Resigned
 choices:
   - name: Throw them in the dungeon!
-    requirements:
-      - attribute: gold
-        value: 50
-      - attribute: diplomacy
-        value: 15
+    requirements: []
     effects:
-      - attribute: gold
-        value: -50
-      - attribute: might
-        value: 100
+      - attribute: loseMember
+        value: 0
   - name: Whatever, let them go.
-    requirements:
-      - attribute: military
-        value: 25
-      - attribute: might
-        value: 300
+    requirements: []
     effects:
-      - attribute: honor
-        value: 10
-      - attribute: might
-        value: -100
+      - attribute: loseMember
+        value: 0
   - name: Treason will be met with death!
     requirements: []
     effects:
-      - attribute: population
-        value: -100
+      - attribute: loseMember
+        value: 0
